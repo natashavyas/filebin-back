@@ -29,11 +29,4 @@ router.post('/', (req, res) => {
         res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` });
       });
 });
-
-router.post('/send', async (req, res) => {
-  const { uuid, emailTo, emailFrom, expiresIn } = req.body;
-  if(!uuid || !emailTo || !emailFrom) {
-      return res.status(422).send({ error: 'All fields are required except expiry.'});
-  }
-});
 module.exports = router;
